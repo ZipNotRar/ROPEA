@@ -229,6 +229,11 @@ public class OVRPlayerController : MonoBehaviour
 
 		if (Input.GetKeyDown(KeyCode.E))
 			buttonRotation += RotationRatchet;
+		//Added the jump function here.
+		if (OVRInput.GetDown(OVRInput.Button.PrimaryHandTrigger))
+		{
+			Jump();			
+		}
 	}
 
 	protected virtual void UpdateController()
@@ -279,7 +284,8 @@ public class OVRPlayerController : MonoBehaviour
 		float motorDamp = (1.0f + (Damping * SimulationRate * Time.deltaTime));
 
 		MoveThrottle.x /= motorDamp;
-		MoveThrottle.y = (MoveThrottle.y > 0.0f) ? (MoveThrottle.y / motorDamp) : MoveThrottle.y;
+		//added teh 1.2f here.
+		MoveThrottle.y = (MoveThrottle.y > 0.0f) ? (MoveThrottle.y / motorDamp * 1.2f) : MoveThrottle.y;
 		MoveThrottle.z /= motorDamp;
 
 		moveDirection += MoveThrottle * SimulationRate * Time.deltaTime;
@@ -354,8 +360,8 @@ public class OVRPlayerController : MonoBehaviour
 				MoveScale = 0.70710678f;
 
 			// No positional movement if we are in the air
-			if (!Controller.isGrounded)
-				MoveScale = 0.0f;
+			//  if (!Controller.isGrounded)
+			//  	MoveScale = 0.0f;
 
 			MoveScale *= SimulationRate * Time.deltaTime;
 
@@ -523,8 +529,8 @@ public class OVRPlayerController : MonoBehaviour
 	/// </summary>
 	public bool Jump()
 	{
-		if (!Controller.isGrounded)
-			return false;
+		// if (!Controller.isGrounded)
+		// 	return false;
 
 		MoveThrottle += new Vector3(0, transform.lossyScale.y * JumpForce, 0);
 

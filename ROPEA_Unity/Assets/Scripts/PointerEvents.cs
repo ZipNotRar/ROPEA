@@ -11,7 +11,8 @@ public class PointerEvents : MonoBehaviour, /* IPointerEnterHandler, IPointerExi
     [SerializeField] private Color enterColor = Color.white;
     [SerializeField] private Color downColor = Color.white;
     [SerializeField] private UnityEvent OnClick = new UnityEvent();
-
+    [SerializeField] private UnityEvent OnClick2 = new UnityEvent();
+    [SerializeField] private bool isGameobjectDestroyed;
     private MeshRenderer meshRenderer = null;
     private void Awake()
     {
@@ -45,7 +46,11 @@ public class PointerEvents : MonoBehaviour, /* IPointerEnterHandler, IPointerExi
     public void OnPointerClick(PointerEventData eventData)
     {
         OnClick.Invoke();
+        if (isGameobjectDestroyed && (this.enabled == false))
+        {
+            OnClick2.Invoke();
+        }
     }
-
+    
 
 }
