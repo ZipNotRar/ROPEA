@@ -7,7 +7,7 @@ This is an initiative by Hanze university in collaboration with two students to 
 * The [**AIController script**](ROPEA_Unity/Assets/Scripts/AIController.cs) directs the enemies in player's direction while using the "Slerp" technique to rotate quicker and with more accuracy. On pressing a specific button, the enemy will move away from the player that button triggers an underwater sound from player's position which repels the enemy.
 * Finally, the [**PointerEvents script**](ROPEA_Unity/Assets/Scripts/PointerEvents.cs) is responsible for using an "IPointerClickHandler" which detects and executes events the player's _pointer_ is focusing on (trash for instance). This script creates an OnClick event through which the animations showing extracted molecules from the detected gameobject (trash) gets initiated.
 
-### Additionally, there are 2 Videoclips which will give you a quick demo of the software.
+### Additionally, there are 2 Videoclips which will give you a quick demo of the software and explain how the above mentioned scripts enable gameplay.
 Run-Through             |  Code-Explaination
 :-------------------------:|:-------------------------:
 [![](http://img.youtube.com/vi/_fxo8h80w28/0.jpg)](http://www.youtube.com/watch?v=_fxo8h80w28 "Stardome - A 3D Dome Painting Experience!!") | [![](http://img.youtube.com/vi/7ikp7RgcbZM/0.jpg)](http://www.youtube.com/watch?v=7ikp7RgcbZM "StarDome - Code Explaination")
